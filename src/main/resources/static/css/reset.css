@@ -1,0 +1,277 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&subset=korean");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    position: relative;
+    font-family: "Montserrat", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #666;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, table, tr, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+img, fieldset {
+    border: none;
+    vertical-align: top;
+}
+
+legend, caption {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    z-index: -1;
+}
+
+textarea, button {
+    vertical-align: middle;
+}
+
+input, select {
+    display: inline-block;
+    font-family: "Metropolis", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", sans-serif;
+    color: #888;
+    letter-spacing: -0.6px;
+    border: 0;
+    border-radius: 0;
+    vertical-align: top;
+    background: #fff;
+}
+
+input {
+    padding: 3px 20px;
+    height: 40px;
+    background: none;
+    font-size: 16px;
+    line-height: 30px;
+    box-shadow: none;
+}
+
+input:focus, input:active {
+    outline: none;
+}
+
+input.error {
+    border: 1px solid #e63b3b !important;
+}
+
+input:disabled {
+    color: #888;
+    background: #f1f1f1;
+}
+
+input.disabled {
+    color: #888 !important;
+    background: #f1f1f1;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+option {
+    padding: 3px 10px;
+}
+
+option:focus, option:active {
+    outline: none;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    border: 0;
+    padding: 0;
+    height: auto;
+    box-shadow: none;
+}
+
+input[type="password"] {
+    height: 40px;
+    border: 1px solid #ccc;
+    color: #999;
+    -webkit-appearance: none;
+    box-shadow: none;
+}
+
+input[type="password"]::placeholder {
+    color: #888;
+}
+
+input[type="password"]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type="password"]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type="text"] {
+
+    height: 40px;
+    -webkit-appearance: none;
+    box-shadow: none;
+}
+
+input[type="text"]::placeholder {
+    color: #888;
+}
+
+input[type="text"]:placeholder-shown {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+input[type=text]::-ms-clear {
+    display: none;
+}
+
+input[type="radio"] {
+    width: 20px !important;
+    height: 20px !important;
+    -webkit-appearance: none;
+    box-shadow: none;
+    /*background: url("../../common/images/radio-btn-off.jpg") no-repeat;*/
+    vertical-align: bottom;
+    border: none !important;
+    padding: 0 !important;
+}
+
+input[type="radio"]:checked {
+    /*background: url("../../common/images/radio-btn-on.jpg") no-repeat;*/
+}
+
+/* select */
+select {
+    width:120px;
+    height: 40px;
+    padding: 0 20px 10px 0;
+    font-size: 16px;
+    line-height: 30px;
+    border: 0;
+    border-bottom: 3px solid #333;
+    border-radius: 0;
+    color: #888;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    vertical-align: top;
+    background:url("../images/select-icon.png") right center no-repeat;
+    background-size:15px 8px;
+}
+
+select::-ms-expand {
+    display: none;
+
+}
+select:focus, select:active {
+    outline: none;
+}
+
+select:disabled {
+    color: #999;
+    background-color: #f3f3f3;
+    /*background-image: url("../../common/images/select-icon-disabled.png");*/
+}
+
+select option {
+    font-size: 18px;
+}
+
+textarea {
+    padding: 10px;
+    font-family: "Metropolis", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", sans-serif;
+    font-size: 18px;
+    color: #999;
+    letter-spacing: -1.6px;
+    -webkit-appearance: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    vertical-align: top;
+    background: #fff;
+    border: 1px solid #ccc;
+    resize: none;
+    line-height:1.4;
+}
+
+textarea:focus, textarea:active {
+    outline: none !important;
+}
+
+textarea::placeholder {
+    color: #888;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+}
+
+a:hover, a:focus, a:active {
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: "Metropolis", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+button:focus, button:active {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block;
+}
+
+.mt0{margin-top:0 !important;}

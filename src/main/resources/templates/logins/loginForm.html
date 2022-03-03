@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+  <title>Hello</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id="wrap" class="container sub">
+  <div th:replace="fragments/bodyHeader :: bodyHeader" />
+  <div class="subCon">
+    <div class="login">
+      <h2>로그인</h2>
+      <form action="/loginChk" method="post">
+        <div class="inputD">
+          <input type="text" id="email" name="email" placeholder="이메일">
+          <input type="password" id="password" name="password" placeholder="비밀번호">
+          <p><input type="checkbox" id="ing" name="ing"><label>로그인 상태 유지</label></p>
+        </div>
+        <button type="submit">로그인</button>
+      </form>
+    </div>
+  </div>
+  <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+</body>
+</html>
