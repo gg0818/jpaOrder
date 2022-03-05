@@ -6,25 +6,12 @@
 </head>
 <body>
 <div id="wrap" class="container main">
+
   <div th:replace="fragments/bodyHeader :: bodyHeader" />
-  <div class="subCon">
+  <div class="subCon" >
     <p class="text"><img src="/images/main_txt.png" alt="마음에도 당충전이 필요할때"></p>
-    <a href="/menus" class="order-btn">주문하기</a>
+    <a href="/menu" class="order-btn">주문하기</a>
   </div>
-<!--  <div class="jumbotron">-->
-<!--    <h1>HELLO FOOD</h1>-->
-<!--    <p class="lead">회원 기능</p>-->
-<!--    <p>-->
-<!--      <a class="btn btn-lg btn-secondary" href="/members/new">회원 가입</a>-->
-<!--      <a class="btn btn-lg btn-secondary" href="/members">회원 목록</a>-->
-<!--    </p>-->
-<!--    <p class="lead">상품 기능</p> <p>-->
-<!--    <a class="btn btn-lg btn-dark" href="/items/new">상품 등록</a>-->
-<!--    <a class="btn btn-lg btn-dark" href="/items">상품 목록</a> </p>-->
-<!--    <p class="lead">주문 기능</p> <p>-->
-<!--    <a class="btn btn-lg btn-info" href="/order">상품 주문</a>-->
-<!--    <a class="btn btn-lg btn-info" href="/orders">주문 내역</a> </p>-->
-<!--  </div>-->
   <div th:replace="fragments/footer :: footer" />
 </div> <!-- /container -->
 </body>

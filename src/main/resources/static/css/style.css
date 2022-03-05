@@ -21,12 +21,14 @@
 .subHead{display:flex; flex-wrap: wrap; align-items: flex-end; align-content: flex-end; width:100%; height:200px;}
 .subHead h2{width:100%; font-size:40px; color:#333; text-align:center;}
 .sub{background:#f5f5f5;}
+.sub.white{background:#fff;}
 .sub .subCon{margin-top:80px; padding-bottom:140px;}
 .login{width:500px; margin:0 auto;}
 .login .inputD{margin-bottom:15px;}
 .login input{padding:10px 15px; border:1px solid #D8D6DE; border-radius:5px;
     height:60px; width:100%; margin-bottom:5px; vertical-align:middle; font-size:18px; color:#333; background:#fff;}
 .login input::placeholder{color: #888;}
+.login input:focus{border:1px solid rgb(42, 193, 188);}
 .login .btnInput{overflow:hidden;}
 .login .btnInput input{width:calc(100% - 105px); margin-right:5px;}
 .login .btnInput .btn{display:block; float:right; width:100px; height:60px; border:1px solid #666; border-radius:5px;
@@ -42,7 +44,42 @@
 .login .infoTxt.green, .login .infoTxt.green:after{color:darkslategrey}
 .login .infoTxt.green:after{border:1px solid darkslategrey;}
 
+.menuList .inner{overflow:visible;}
+ul.listDiv{display:flex; flex-wrap: wrap; width:100%;}
+ul.listDiv li{width:calc(25% - 9px); margin-right:12px;}
+ul.listDiv li:nth-child(4n){margin-right:0;}
+ul.listDiv li:nth-child(n+5){margin-top:50px;}
+ul.listDiv li a{display: block; position:relative; top:0; transition:top 0.3s ease;}
+ul.listDiv li a:hover{top:-10px;}
+ul.listDiv li .img{margin-bottom:15px; border-radius: 10px; overflow:hidden;}
+ul.listDiv li .img img{width:100%;}
+ul.listDiv li p{margin-bottom:10px;}
+ul.listDiv li p:last-child{margin-bottom:0;}
+ul.listDiv li .tit{font-size:18px; color:#000; font-weight:500;}
+ul.listDiv li .info{font-size:16px;}
+ul.listDiv li .price{font-size: 16px; color:#000; font-weight:500; letter-spacing: 0.3px;}
 .bigBtn{display: block; width:100%; height: 60px; color:#fff; font-weight:500; background:rgb(42, 193, 188); }
+.layerpop{position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:500px; height:600px;
+    padding:25px; overflow-x:hidden; overflow-y: auto; background:#fff;}
+.layerpop.menuOrder p{margin-bottom:15px;}
+.layerpop.menuOrder .tit{font-size:25px; color:#000; font-weight:500;}
+.layerpop.menuOrder .img{position:relative; height:350px; overflow:hidden;}
+.layerpop.menuOrder .img img{position:absolute; top:50%; left:0; transform:translateY(-50%); width:100%;}
+.layerpop.menuOrder .info{}
+.layerpop.menuOrder .price{text-align:right; color:#000; font-weight:500; letter-spacing: 0.3px;}
+.layerpop.menuOrder .cntDiv{display:flex; flex-wrap: wrap; justify-content: space-between; align-content: center; align-items: center;}
+.layerpop.menuOrder .cntTit{}
+.layerpop.menuOrder .count{width:100px; border:1px solid #888; border-radius: 50px;}
+.layerpop.menuOrder .count a{display:block; width:20px; height:20px; overflow:hidden; text-indent: -9999px;}
+.layerpop.menuOrder .count a.plus{background:url("../images/plus.png") center no-repeat;}
+.layerpop.menuOrder .count a.minus{background:url("../images/minus.png") center no-repeat;}
+.layerpop.menuOrder .count input{}
+.layerpop.menuOrder .total{}
+.layerpop.menuOrder .total p{}
+.layerpop.menuOrder .total .cnt{}
+.layerpop.menuOrder .total .price{}
+#addressLayerPopup{display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:500px; max-height:500px; overflow-y: auto; z-index:1;}
+#dimmed{position:absolute; top:0; left:0; width:100%; height: 100%; background:rgba(0,0,0,0.3); display:none;}
 .footer{position:absolute; bottom:0; left:0; width:100%;}
 .footer p{width:100%; font-size:18px; color:#666; line-height:30px; text-align:center;}
 

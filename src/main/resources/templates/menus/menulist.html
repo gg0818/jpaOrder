@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>Hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id="wrap" class="container sub white">
+    <div th:replace="fragments/bodyHeader :: bodyHeader" />
+    <div class="subHead"><h2>전국별미</h2></div>
+    <div class="subCon menuList">
+        <div class="inner">
+            <ul class="listDiv">
+                <li th:each="menu : ${menus}">
+                    <a href="javascript:">
+                        <div class="img"><img th:src="${menu.getOriginalFileName()}"></div>
+                        <p class="tit" th:text="${menu.name}">굴림당 수제 굴림 만두</p>
+                        <p class="info" th:text="${menu.info}">No밀가루로 부담 없이 즐기는 수제만두</p>
+                        <p class="price"><span th:text="${menu.price}"></span>원</p>
+                    </a>
+                </li>
+            </ul>
+        </div><!--// inner-->
+    </div>
+    <div th:replace="fragments/footer :: footer" />
+
+    <div class="layerpop menuOrder">
+        <div>
+            <p class="tit">굴림당 수제 굴림만두</p>
+            <p class="img"><img src="/images/food_img1.jpg"></p>
+            <p class="info">NO밀가루로 부담 없이 즐기는 수제 만두</p>
+            <p class="price">11800원</p>
+            <div class="cntDiv">
+                <p class="cntTit">수량선택</p>
+                <div class="count">
+                    <a href="javascript:" class="minus">빼기</a>
+                    <input type="number" value="0" prefix>
+                    <a href="javascript:" class="plus">더하기</a>
+                </div>
+            </div>
+
+            <div class="total">
+                <p class="cnt">총 <span>1</span>개</p>
+                <p class="price"><span>11800</span>원</p>
+            </div>
+        </div>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>

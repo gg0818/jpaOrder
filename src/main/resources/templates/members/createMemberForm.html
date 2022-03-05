@@ -8,32 +8,34 @@
 <div id="wrap" class="container sub">
     <div th:replace="fragments/bodyHeader :: bodyHeader" />
     <div class="subHead"><h2>회원가입</h2></div>
-    <div class="subCon">
+    <div class="subCon joinForm">
         <div class="inner">
             <div class="login">
-                <form role="form" action="/members/new" th:object="${memberForm}" method="post">
+                <form role="form" action="/members/new" th:object="${memberForm}" method="post" onsubmit="return submitCheck();">
                     <div class="inputD">
-                        <div class="btnInput">
-                            <input type="text" th:field="*{email}" placeholder="이메일">
-                            <a href="javascript:void(0);" class="btn emailChk" onclick="emailAuthentication(this);">인증</a>
+                        <div class="emailD">
+                            <p class="btnInput">
+                                <input type="text" th:field="*{email}" placeholder="이메일" required>
+                                <a href="javascript:void(0);" class="btn emailChk" onclick="emailAuthentication(this);">인증</a>
+                            </p>
                             <p class="infoTxt hide">인증번호가 발송되었습니다.</p>
                         </div>
-                        <p><input type="text" th:field="*{emailChkNum}" placeholder="인증번호"></p>
+                        <p><input type="text" th:field="*{emailChkNum}" placeholder="인증번호" required></p>
                         <p class="infoTxt hide">인증번호가 일치하지 않습니다.</p>
                     </div>
                     <div class="inputD">
-                        <p><input type="password" th:field="*{password}" placeholder="비밀번호"></p>
+                        <p><input type="password" th:field="*{password}" placeholder="비밀번호" required></p>
                         <p class="infoTxt">문자, 숫자, 특수기호를 조합하여 8~15자리로 입력해주세요.</p>
-                        <p><input type="password" id="password_chk" name="password_chk" placeholder="비밀번호 확인"></p>
+                        <p><input type="password" id="password_chk" name="password_chk" placeholder="비밀번호 확인" required></p>
                         <p class="infoTxt hide">비밀번호가 일치하지 않습니다.</p>
                     </div>
                     <div class="inputD">
-                        <p><input type="text" th:field="*{phone}" placeholder="핸드폰번호"></p>
+                        <p><input type="text" th:field="*{phone}" placeholder="핸드폰번호" required></p>
                     </div>
                     <div class="inputD">
                         <p class="btnInput">
                             <input type="text" th:field="*{zipcode}" placeholder="우편번호" readonly="readonly">
-                            <a href="javascript:" class="btn addressBtn">주소검색</a>
+                            <a href="javascript:void(0);" class="btn addressBtn" onclick="addressApi();">주소검색</a>
                         </p>
                         <p><input type="text" th:field="*{city}" placeholder="기본주소" readonly="readonly"></p>
                         <p><input type="text" th:field="*{street}" placeholder="상세주소"></p>
@@ -44,131 +46,9 @@
         </div><!--// inner -->
     </div><!--//subCon-->
     <div th:replace="fragments/footer :: footer" />
-    <div class="addressLayerPopup"></div>
+    <div id="addressLayerPopup"></div>
 </div> <!-- /container -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-    //주소
-    $(".addressBtn").on("click", function (){
-        new daum.Postcode({
-            width:500,
-            height:600,
-            oncomplete: function(data) { //선택시 입력값 세팅
-                $("#zipcode").val(data.zonecode);
-                $("#city").val(data.address); // 주소 넣기
-                $("#street").focus();
-            }
-        }).embed($(".addressLayerPopup"));
-    });
-
-    //비밀번호
-    $(function (){
-        $('#password').blur(function(){
-            const infoTxt = $(this).parent("p").next(".infoTxt");
-            passwordChk($(this).val(),infoTxt);
-        });
-
-        //비밀번호 확인
-        $("#password_chk").keyup(function(){
-            if ($("#password").val() == $(this).val()) {
-                $(this).parent("p").next(".infoTxt").removeClass("hide red").addClass("green").html("비밀번호가 일치합니다.");
-            }else{
-                if(!$(this).parent("p").next(".infoTxt").hasClass("red")){
-                    $(this).parent("p").next(".infoTxt").removeClass("hide green").addClass("red").html("비밀번호가 일치하지 않습니다.");
-                }
-            }
-        });
-    });
-
-    // 비밀번호 유효성 체크
-    function passwordChk(pw,infoTxt){
-        pw = pw.trim();
-        const num = pw.search(/[0-9]/g);
-        const eng = pw.search(/[a-z]/ig);
-        const spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-
-        if (pw.length < 8 || pw.length > 15) {
-            $('#password').focus();
-            infoTxt.html("문자,숫자,특수기호를 조합하여 8~15자리로 입력해주세요.");
-            if(!infoTxt.hasClass("red")) infoTxt.removeClass("hide green").addClass("red");
-        } else if (pw.search(/\s/) != -1) {
-            $('#password').focus();
-            infoTxt.html("비밀번호는 공백 없이 입력해주세요.");
-            if(!infoTxt.hasClass("red")) infoTxt.removeClass("hide green").addClass("red");
-        } else if (num < 0 || eng < 0 || spe < 0) {
-            $('#password').focus();
-            infoTxt.html("문자,숫자,특수기호를 조합하여 8~15자리로 입력해주세요.");
-            if(!infoTxt.hasClass("red")) infoTxt.removeClass("hide green").addClass("red");
-        } else {
-            infoTxt.html("사용가능한 비밀번호입니다.");
-            if(!infoTxt.hasClass("green")) infoTxt.removeClass("hide red").addClass("green");
-        }
-    }
-
-    //이메일 인증
-    function emailAuthentication(e){
-        const email = $("#email").val();
-        const infoTxt = $(e).siblings(".infoTxt");
-        console.log(infoTxt);
-        if(!emailValChk(email)){
-            return false;
-        }
-        emailChk(email,infoTxt);
-    }
-
-    //이메일 중복체크
-    function emailChk(email,infoTxt){
-        $.ajax({
-            type:"GET",
-            url:"/mail_chk?email="+email,
-            success:function(data){
-                if(data == 1) {
-                    infoTxt.removeClass("hide").addClass("red").html("이미 가입된 이메일입니다.");
-                }else{
-                    infoTxt.removeClass("hide red").addClass("green").html("해당 이메일로 인증번호를 발송했습니다.");
-                    $.ajax({
-                        type:"GET",
-                        url:"/mail_verification_code?email="+email,
-                        success:function(data){
-                            $("#emailChkNum").keyup(function(){
-                                if($(this).val() == data){
-                                    $("#emailChkNum").parent("p").next(".infoTxt").removeClass("hide red").addClass("green")
-                                    .html("인증번호 일치");
-                                }else{
-                                    if(!$("#emailChkNum").parent("p").next(".infoTxt").hasClass("red")){
-                                        console.log(1);
-                                        $("#emailChkNum").parent("p").next(".infoTxt").removeClass("hide green").addClass("red")
-                                            .html("인증번호가 일치하지 않습니다. 인증번호를 다시 확인해주세요.");
-                                    }
-                                }
-                            });
-                        }
-                    });
-                }
-            }
-        });
-    }
-
-    //이메일 유효성 체크
-    function emailValChk(email){
-        const emailPattern= /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-        const target = $("#email");
-
-        if(!check(emailPattern, target, email, "유효하지 않은 이메일 주소입니다.")) {
-            return false;
-        }
-        return true;
-    }
-
-    function check(pattern, taget, email, message) {
-        if(pattern.test(email)) {
-            return true;
-        }
-        taget.siblings(".infoTxt").removeClass("hide").addClass("red").html(message);
-        taget.focus();
-        return false;
-    }
-
-</script>
+<script src="/js/script.js"></script>
 </body>
 </html>

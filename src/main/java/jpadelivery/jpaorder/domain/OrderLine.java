@@ -13,7 +13,7 @@ import static javax.persistence.FetchType.*;
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderLine {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="order_line_id")
     private Long id;
 

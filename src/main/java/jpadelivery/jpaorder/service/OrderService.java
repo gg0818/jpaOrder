@@ -33,9 +33,7 @@ public class OrderService {
 
         //주문 생성
         Order order = Order.createOrder(member, delivery, orderLine);
-
         orderRepository.save(order);
-
         return order.getId();
     }
 

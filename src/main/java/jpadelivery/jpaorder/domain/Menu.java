@@ -13,7 +13,7 @@ import static javax.persistence.FetchType.*;
 @Getter @Setter
 public class Menu {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "menu_id")
     private Long id;
 
@@ -24,6 +24,11 @@ public class Menu {
     private String name;
     private int price;
     private String info;
-
+    @Column(name = "menu_img")
+    private String originalFileName;
+    @Transient
+    private String StoredFilePath;
+    @Transient
+    private Long fileSize;
 
 }

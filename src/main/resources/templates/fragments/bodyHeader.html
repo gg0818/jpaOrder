@@ -5,8 +5,11 @@
     <div class="nav inner">
         <h1 class="logo"><a href="/">HELLO FOOD</a></h1>
         <p class="utill">
-            <a href="/login">로그인</a>
-            <a href="/members/new">회원가입</a>
+            <th:block th:if="${session.loginMember} == null">
+                <a th:if="${session.loginMember} == null" href="/login">로그인</a>
+                <a href="/members/new">회원가입</a>
+            </th:block>
+            <a th:if="${session.loginMember} != null" href="/logout">로그아웃</a>
         </p>
     </div>
 </div>
