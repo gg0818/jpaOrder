@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>Hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id="wrap" class="container sub white">
+    <div th:replace="fragments/bodyHeader :: bodyHeader" />
+    <div class="subHead"><h2>주문하기</h2></div>
+    <div class="subCon">
+        <form role="form" method="post" action="/order" >
+            <input type="hidden" id="memberId" name="memberId" th:value="${member.id}">
+            <input type="hidden" id="menuId" name="menuId" th:value="${menu.id}">
+            <div class="inner cartDiv">
+                <div class="cartListDiv">
+                    <div class="cartList">
+                        <p class="img"><img th:src="${menu.originalFileName}" alt="" ></p>
+                        <p class="tit" th:text="${menu.name}"></p>
+                        <div class="count">
+                            <a href="javascript:" class="minus">빼기</a>
+                            <input type="number" id="count" name="count" th:value="${menuform.count}">
+                            <a href="javascript:" class="plus">더하기</a>
+                        </div>
+                        <p class="price"><span th:text="${menu.price * menuform.count}">0</span>원</p>
+                    </div>
+                </div>
+                <div class="orderInfo">
+                    <h3>배송지</h3>
+                    <p class="address">
+                        <span th:text="${memberAdress.city}"></span>
+                        <input type="text" th:value="${memberAdress.street}">
+                    </p>
+                    <div class="payDiv">
+                        <span>결제금액</span>
+                        <p class="price"><span th:text="${menu.price * menuform.count}">0</span>원</p>
+                    </div>
+                    <button type="submit" class="bigBtn">주문하기</button>
+                </div>
+            </div><!--// inner-->
+        </form>
+    </div>
+    <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+<script src="/js/menu.js"></script>
+</body>
+</html>

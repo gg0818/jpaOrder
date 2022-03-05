@@ -12,11 +12,11 @@
         <div class="inner">
             <ul class="listDiv">
                 <li th:each="menu : ${menus}">
-                    <a href="javascript:">
-                        <div class="img"><img th:src="${menu.getOriginalFileName()}"></div>
+                    <a href="javascript:void(0);" th:data-id="${menu.id}" onclick="menuPop(this);">
+                        <div class="img"><img th:src="${menu.originalFileName}"></div>
                         <p class="tit" th:text="${menu.name}">굴림당 수제 굴림 만두</p>
                         <p class="info" th:text="${menu.info}">No밀가루로 부담 없이 즐기는 수제만두</p>
-                        <p class="price"><span th:text="${menu.price}"></span>원</p>
+                        <p class="price"><span th:text="${menu.price}">0</span>원</p>
                     </a>
                 </li>
             </ul>
@@ -25,26 +25,32 @@
     <div th:replace="fragments/footer :: footer" />
 
     <div class="layerpop menuOrder">
-        <div>
-            <p class="tit">굴림당 수제 굴림만두</p>
-            <p class="img"><img src="/images/food_img1.jpg"></p>
-            <p class="info">NO밀가루로 부담 없이 즐기는 수제 만두</p>
-            <p class="price">11800원</p>
-            <div class="cntDiv">
-                <p class="cntTit">수량선택</p>
-                <div class="count">
-                    <a href="javascript:" class="minus">빼기</a>
-                    <input type="number" value="0" prefix>
-                    <a href="javascript:" class="plus">더하기</a>
-                </div>
-            </div>
-
-            <div class="total">
-                <p class="cnt">총 <span>1</span>개</p>
+        <form role="form" method="post" action="/menuCart" th:object="${menuForm}" onsubmit="return menuCart();">
+            <input type="hidden" th:field="*{id}" value="">
+            <div>
+                <p class="tit">굴림당 수제 굴림만두</p>
+                <p class="img"><img src="/images/food_img1.jpg"></p>
+                <p class="info">NO밀가루로 부담 없이 즐기는 수제 만두</p>
                 <p class="price"><span>11800</span>원</p>
+                <div class="cntDiv">
+                    <p class="cntTit">수량선택</p>
+                    <div class="count">
+                        <a href="javascript:" class="minus">빼기</a>
+                        <input type="number" th:field="*{count}" value="0" readonly>
+                        <a href="javascript:" class="plus">더하기</a>
+                    </div>
+                </div>
+                <div class="total">
+                    <p class="cnt">총 <span>0</span>개</p>
+                    <p class="price"><span>0</span>원</p>
+                </div>
+                <button th:if="${session.loginMember} == null" type="button" class="bigBtn" onclick="alert('로그인 후 주문해주세요.');">주문하기</button>
+                <button th:if="${session.loginMember} != null" type="submit" class="bigBtn">주문하기</button>
             </div>
-        </div>
+        </form>
+        <a href="javascript:void(0);" class="xbtn" onclick="popClose(this);">닫기</a>
     </div>
 </div> <!-- /container -->
+<script src="/js/menu.js"></script>
 </body>
 </html>

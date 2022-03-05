@@ -45,5 +45,7 @@ public class OrderService {
         order.cancle();
     }
 
-
+    public List<Order> findOrders(Long memberId){
+        return orderRepository.findAll(memberId);
+    }
 }

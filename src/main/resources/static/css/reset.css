@@ -55,9 +55,9 @@ textarea, button {
 
 input, select {
     display: inline-block;
-    font-family: "Metropolis", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", sans-serif;
+    font-family: "Montserrat", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", sans-serif;
     color: #888;
-    letter-spacing: -0.6px;
+    letter-spacing:-0.025em;
     border: 0;
     border-radius: 0;
     vertical-align: top;

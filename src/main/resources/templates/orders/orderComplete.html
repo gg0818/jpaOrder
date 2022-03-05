@@ -5,11 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<div id="wrap" class="container main">
+<div id="wrap" class="container comp">
     <div th:replace="fragments/bodyHeader :: bodyHeader" />
-    <div class="subCon" >
-        <p class="text"><img src="/images/main_txt.png" alt="마음에도 당충전이 필요할때"></p>
-        <a href="/menus" class="order-btn">주문하기</a>
+    <div class="subCon">
+        <div class="complete inner">
+            <p class="txt"><strong>주문</strong>이 <br><strong>완료</strong>되었습니다</p>
+            <p class="btnD"><a href="/orderList" class="bigBtn">주문내역 보기</a></p>
+        </div>
     </div>
     <div th:replace="fragments/footer :: footer" />
 </div> <!-- /container -->

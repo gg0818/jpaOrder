@@ -1,5 +1,5 @@
 package jpadelivery.jpaorder.domain;
 
 public enum OrderStatus {
-    ORDER, CANCEL
+    STAY, ORDER, CANCEL
 }
