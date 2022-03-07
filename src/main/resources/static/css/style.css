@@ -60,20 +60,31 @@
 .count input{padding:0; width:20px; height:20px; text-align:center; line-height:20px; color:#000;}
 
 .menuList .inner{overflow:visible;}
-ul.listDiv{display:flex; flex-wrap: wrap; width:100%;}
-ul.listDiv li{width:calc(25% - 9px); margin-right:12px;}
-ul.listDiv li:nth-child(4n){margin-right:0;}
-ul.listDiv li:nth-child(n+5){margin-top:50px;}
-ul.listDiv li a{display: block; position:relative; top:0; transition:top 0.3s ease;}
-ul.listDiv li a:hover{top:-10px;}
-ul.listDiv li .img{margin-bottom:15px; border-radius: 10px; overflow:hidden;}
-ul.listDiv li .img img{width:100%;}
-ul.listDiv li p{margin-bottom:10px;}
-ul.listDiv li p:last-child{margin-bottom:0;}
-ul.listDiv li .tit{font-size:18px; color:#000; font-weight:500;}
-ul.listDiv li .info{font-size:16px;}
-ul.listDiv li .price{font-size: 16px; color:#000; font-weight:500; letter-spacing: 0.3px;}
+.menuList ul.listDiv{display:flex; flex-wrap: wrap; width:100%;}
+.menuList ul.listDiv li{width:calc(25% - 9px); margin-right:12px;}
+.menuList ul.listDiv li:nth-child(4n){margin-right:0;}
+.menuList ul.listDiv li:nth-child(n+5){margin-top:50px;}
+.menuList ul.listDiv li a{display: block; position:relative; top:0; transition:top 0.3s ease;}
+.menuList ul.listDiv li a:hover{top:-10px;}
+.menuList ul.listDiv li .img{margin-bottom:15px; border-radius: 10px; overflow:hidden;}
+.menuList ul.listDiv li .img img{width:100%;}
+.menuList ul.listDiv li p{margin-bottom:10px;}
+.menuList ul.listDiv li p:last-child{margin-bottom:0;}
+.menuList ul.listDiv li .tit{font-size:18px; color:#000; font-weight:500;}
+.menuList ul.listDiv li .info{font-size:16px;}
+.menuList ul.listDiv li .price{font-size: 16px; color:#000; font-weight:500; letter-spacing: 0.3px;}
 
+.orderTable{width:1000px; margin:0 auto; border-top:2px solid #333;}
+.orderTable table{width:100%; table-layout: fixed;}
+.orderTable table thead th{padding:22px 0; font-size:18px; color:#333; font-weight:400; text-align: center;}
+.orderTable table tbody td{width:100px; padding:10px 0; font-size:16px;}
+.orderTable table tbody td:nth-child(2){witdh:700px;}
+.orderTable table tbody td.img{padding-left:20px;}
+.orderTable table tbody td.menuTit{padding:10px 15px; color:#333; font-weight:500;}
+.orderTable table tbody td.totalNum, .orderTable table tbody td.totalPay, .orderTable table tbody td.orderDate,
+.orderTable table tbody td.delivery{text-align: center;}
+.orderTable table tr{border-bottom:1px solid #ddd;}
+.orderTable table img{width:100%;}
 .cartDiv{display:flex; flex-wrap:wrap; overflow:hidden;}
 .cartDiv .cartListDiv{width:calc(100% - 305px); margin-right:20px; border-top:1px solid #333;}
 .cartDiv .cartList{display:flex; flex-wrap:wrap; align-content:center; align-items: center; padding:20px; border-bottom:1px solid #eee;}

@@ -47,7 +47,7 @@ public class LoginController {
 
         //로그인 성공
         //return "redirect:/" + redirectURL;
-        return "redirect:/";
+        return "home";
     }
 
     @GetMapping("/logout")
@@ -57,6 +57,6 @@ public class LoginController {
             session.invalidate(); //세션 날림
         }
 
-        return "redirect:/";
+        return "home";
     }
 }

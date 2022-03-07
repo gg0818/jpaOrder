@@ -1,7 +1,6 @@
 package jpadelivery.jpaorder.repository;
 
 import jpadelivery.jpaorder.domain.Order;
-import jpadelivery.jpaorder.domain.OrderLine;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -23,9 +22,10 @@ public class OrderRepository {
 
     public List<Order> findAll(Long memberId){
         return em.createQuery("select o from Order o left join o.orderLines l" +
-                        " where o.member.id =:memberId", Order.class)
+                        " where o.member.id =:memberId order by o.orderDateTime desc", Order.class)
                 .setParameter("memberId",memberId)
                 .getResultList();
     }
+
 
 }

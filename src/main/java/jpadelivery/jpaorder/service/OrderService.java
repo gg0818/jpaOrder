@@ -45,6 +45,9 @@ public class OrderService {
         order.cancle();
     }
 
+    /**
+     * 주문내역
+     */
     public List<Order> findOrders(Long memberId){
         return orderRepository.findAll(memberId);
     }

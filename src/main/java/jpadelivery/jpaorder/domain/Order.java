@@ -59,6 +59,7 @@ public class Order {
         }
         order.setOrderDateTime(LocalDateTime.now());
         order.setStatus(OrderStatus.ORDER);
+        order.getDelivery().setStatus(DeliveryStatus.STAY);
         return order;
     }
 

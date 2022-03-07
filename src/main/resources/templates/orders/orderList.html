@@ -9,17 +9,37 @@
     <div th:replace="fragments/bodyHeader :: bodyHeader" />
     <div class="subHead"><h2>주문내역</h2></div>
     <div class="subCon orderList">
-        <div class="inner">
-            <ul class="listDiv">
-                <li th:each="order : ${orders}">
-                    <p class="img"><img th:src="${order.orderLines[0].menu.originalFileName}"></p>
-                    <p class="menuTit" th:text="${order.orderLines[0].menu.name}"></p>
-                    <p class="totalNum" th:text="${order.orderLines[0].count}"></p>
-                    <p class="totalPay" th:text="${order.orderLines[0].totalPrice}"></p>
-                    <p class="orderDate" th:text="${order.orderDateTime.toLocalDate()}"></p>
-                </li>
-            </ul>
-        </div><!--// inner-->
+        <div class="orderTable">
+            <table>
+                <colgroup>
+                    <col width="100px">
+                    <col width="*">
+                    <col width="100px">
+                    <col width="100px">
+                    <col width="100px">
+                    <col width="100px">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th colspan="2">주문상품</th>
+                        <th>가격</th>
+                        <th>수량</th>
+                        <th>주문날짜</th>
+                        <th>배송상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="order : ${orders}">
+                        <td class="img"><img th:src="${order.orderLines[0].menu.originalFileName}"></td>
+                        <td class="menuTit"><p th:text="${order.orderLines[0].menu.name}"></p></td>
+                        <td class="totalNum"><span th:text="${order.orderLines[0].count}"></span> 개</td>
+                        <td class="totalPay"><span th:text="${order.orderLines[0].totalPrice}"></span> 원</td>
+                        <td class="orderDate"><p th:text="${order.orderDateTime.toLocalDate()}"></p></td>
+                        <td class="delivery"><p>배송준비중</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div th:replace="fragments/footer :: footer" />
 </div> <!-- /container -->
