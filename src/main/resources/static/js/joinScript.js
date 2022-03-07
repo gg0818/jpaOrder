@@ -1,3 +1,4 @@
+let addBlooean = false;
 $(function(){
     //주소
     $(document).on("click", "#dimmed", function(){
@@ -54,7 +55,7 @@ function submitCheck(){
 function addressApi(e){
     const addpop = document.getElementById("addressLayerPopup");
     const dim = document.getElementById("dimmed");
-    let addBlooean = false;
+    addBlooean = false;
     var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
     new daum.Postcode({
         oncomplete: function(data) { //선택시 입력값 세팅
@@ -112,7 +113,6 @@ function addressApi(e){
     addBlooean = true;
     addpop.style.display = 'block';
     dim.style.display = 'block';
-
 }
 
 //비밀번호 유효성 체크
@@ -153,31 +153,36 @@ function emailAuthentication(e){
 function emailChk(email,infoTxt){
     $.ajax({
         type:"GET",
-        url:"/mail_chk?email="+email,
+        url:"/member_chk?email="+email,
         success:function(data){
-            if(data == 1) {
+            if(data == 0) {
                 infoTxt.removeClass("hide").addClass("red").html("이미 가입된 이메일입니다.");
             }else{
                 infoTxt.removeClass("hide red").addClass("green").html("해당 이메일로 인증번호를 발송했습니다.");
                 $("#email").attr("data-email",email);
-                $.ajax({
-                    type:"GET",
-                    url:"/mail_verification_code?email="+email,
-                    success:function(data){
-                        $("#emailChkNum").keyup(function(){
-                            if($(this).val() == data){
-                                $("#emailChkNum").parent("p").next(".infoTxt").removeClass("hide red").addClass("green")
-                                    .html("인증번호 일치");
-                            }else{
-                                if(!$("#emailChkNum").parent("p").next(".infoTxt").hasClass("red")){
-                                    $("#emailChkNum").parent("p").next(".infoTxt").removeClass("hide green").addClass("red")
-                                        .html("인증번호가 일치하지 않습니다. 인증번호를 다시 확인해주세요.");
-                                }
-                            }
-                        });
-                    }
-                });
+                emailCode(email);
             }
+        }
+    });
+}
+
+//이메일 인증번호
+function emailCode(email){
+    $.ajax({
+        type:"GET",
+        url:"/mail_verification_code?email="+email,
+        success:function(data){
+            $("#emailChkNum").keyup(function(){
+                if($(this).val() == data){
+                    $("#emailChkNum").parent("p").next(".infoTxt").removeClass("hide red").addClass("green")
+                        .html("인증번호 일치");
+                }else{
+                    if(!$("#emailChkNum").parent("p").next(".infoTxt").hasClass("red")){
+                        $("#emailChkNum").parent("p").next(".infoTxt").removeClass("hide green").addClass("red")
+                            .html("인증번호가 일치하지 않습니다. 인증번호를 다시 확인해주세요.");
+                    }
+                }
+            });
         }
     });
 }

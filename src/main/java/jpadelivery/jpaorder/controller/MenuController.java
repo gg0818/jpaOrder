@@ -31,21 +31,4 @@ public class MenuController {
         return "menus/menulist";
     }
 
-    @PostMapping("/menuCart")
-    public String cartView(@Valid MenuForm form, @SessionAttribute(name=SessionConstants.LOGIN_MEMBER) Member loginMember, Model model){
-        Menu menu = menuService.findOne(form.getId());
-        if(loginMember == null){
-            return "redirect:/";
-        }
-        // 세션에서 아이디 가져옴
-        Member member = memberService.findOne(loginMember.getId());
-        Address memberAdress = member.getAddress();
-        model.addAttribute("menu", menu);
-        model.addAttribute("menuform", form);
-        model.addAttribute("member", member);
-        model.addAttribute("memberAdress", memberAdress);
-        return "menus/cart";
-    }
-
-
 }

@@ -1,3 +1,12 @@
+select * from store;
+insert into store(store_name, status) values ("굴림당","OPEN");
+insert into store(store_name, status) values ("다농이네","OPEN");
+insert into store(store_name, status) values ("밥푸드","OPEN");
+insert into store(store_name, status) values ("네모네모","OPEN");
+insert into store(store_name, status) values ("한와담블랙","OPEN");
+insert into store(store_name, status) values ("을지로보석","OPEN");
+insert into store(store_name, status) values ("해담은","OPEN");
+
 select * from menu;
 
 insert into menu(info, name, menu_img, price, store_id)
@@ -22,13 +31,6 @@ insert into menu(info, name, menu_img, price, store_id)
 values("오직 맛있는 음식을 위해 연구합니다.", "해담은 전복 한상","/images/food_img7.jpg","6900",7);
 
 
-select * from store;
-insert into store(store_name, status) values ("굴림당","OPEN");
-insert into store(store_name, status) values ("다농이네","OPEN");
-insert into store(store_name, status) values ("밥푸드","OPEN");
-insert into store(store_name, status) values ("네모네모","OPEN");
-insert into store(store_name, status) values ("한와담블랙","OPEN");
-insert into store(store_name, status) values ("을지로보석","OPEN");
-insert into store(store_name, status) values ("해담은","OPEN");
+
 
 

@@ -22,13 +22,4 @@ public class Member {
     @Embedded
     private Address address;
 
-    public Member createMember(String email, String password, String city, String street, String zipcode, String phone){
-        Member member = new Member();
-        member.setEmail(email);
-        member.setPassword(password);
-        member.setAddress(new Address(city, street, zipcode));
-        member.setPhone(phone);
-        return member;
-    }
-
 }

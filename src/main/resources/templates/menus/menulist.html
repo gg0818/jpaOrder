@@ -25,7 +25,7 @@
     <div th:replace="fragments/footer :: footer" />
 
     <div class="layerpop menuOrder">
-        <form role="form" method="post" action="/menuCart" th:object="${menuForm}" onsubmit="return menuCart();">
+        <form role="form" method="post" action="/orderCart" th:object="${menuForm}" onsubmit="return menuCart();">
             <input type="hidden" th:field="*{id}" value="">
             <div>
                 <p class="tit">굴림당 수제 굴림만두</p>

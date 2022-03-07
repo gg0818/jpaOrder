@@ -29,14 +29,10 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@Valid LoginForm form, BindingResult result,
-                        @RequestParam(defaultValue = "/") String redirectURL, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            return "logins/loginForm";
-        }
+    public String login(@Valid LoginForm form, BindingResult result, HttpServletRequest request) {
+        if (result.hasErrors()) return "logins/loginForm";
 
         Member loginMember = loginService.login(form.getEmail(), form.getPassword());
-
         if (loginMember == null) {
             result.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
             return "logins/loginForm";
@@ -45,8 +41,6 @@ public class LoginController {
         HttpSession session = request.getSession(); //세션에 있으면 세션 반환, 없으면 신규 세션을 생성하여 반환
         session.setAttribute(SessionConstants.LOGIN_MEMBER, loginMember); //세션에 로그인 회원 정보 보관
 
-        //로그인 성공
-        //return "redirect:/" + redirectURL;
         return "home";
     }
 
