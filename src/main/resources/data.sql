@@ -30,6 +30,8 @@ values("특별 레시피로 만들어 깊은 풍미가 가득해요", "을지로
 insert into menu(info, name, menu_img, price, store_id)
 values("오직 맛있는 음식을 위해 연구합니다.", "해담은 전복 한상","/images/food_img7.jpg","6900",7);
 
+insert into menu(info, name, menu_img, price, store_id)
+values ("얇은 껍질 속 가득 찬 새콤달콤 과즙", "제주 천혜향", "/images/food_img8.jpg", "17900", 2);
 
 
 
