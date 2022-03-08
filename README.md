@@ -13,7 +13,7 @@
 * ##실행화면
 
 ▾ 홈
-![project2-img1](https://user-images.githubusercontent.com/43127477/157191678-7b2e6332-679a-4832-8337-1d481eed95e8.jpg)
+![project2-img1-1](https://user-images.githubusercontent.com/43127477/157201029-267b0947-21ca-452c-abc8-d02b123c658c.jpg)
 
 ▾ 회원가입
 <img width="1439" alt="project2-img2" src="https://user-images.githubusercontent.com/43127477/157191699-57cb0761-f323-4cdf-9774-33b16b6ac1e3.png">

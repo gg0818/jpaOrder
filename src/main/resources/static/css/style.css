@@ -11,10 +11,10 @@
 .nav .utill a{display:inline-block; font-size:22px; font-weight: 500; margin-right:15px;}
 .nav .utill a:last-child{margin-right:0}
 .sub .nav a{color:#333;}
-.main{width:100%; height: 100vh; background:url("../images/bg2.jpg") center no-repeat; background-size:cover;}
+.main{width:100%; height: 100vh; background:url("../images/bg3.jpg") center no-repeat; background-size:cover;}
 .main .subCon{position:relative; width: 100%; height:100vh; overflow: hidden;}
-.main .text{position: absolute; top:190px; left:calc(50% - 600px);}
-.main .text img{width:35vw; min-width:350px;}
+.main .text{position: absolute; top:230px; left:calc(50% - 600px);}
+.main .text img{width:32vw; min-width:350px;}
 .main .order-btn{display:block; position: absolute; bottom:150px; right:calc(50% - 600px);
     width:180px; height:180px; border-radius:50%; font-size:30px; color:rgb(42, 193, 188); font-weight:600; text-align:center;
     line-height:180px; background:#fff; box-shadow:10px 10px rgba(42, 193, 188, 1);}
